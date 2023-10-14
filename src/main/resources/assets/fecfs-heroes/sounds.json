@@ -1,0 +1,8 @@
+{
+  "batarang_thrown": {
+    "subtitle": "sounds.fecfs-heroes.batarang_thrown",
+    "sounds": [
+      "fecfs-heroes:batarangfx"
+    ]
+  }
+}
