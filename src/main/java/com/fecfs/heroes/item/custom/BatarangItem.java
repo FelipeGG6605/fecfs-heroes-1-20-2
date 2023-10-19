@@ -13,7 +13,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BatarangItem extends Item {
+public class  BatarangItem extends Item {
     public BatarangItem(Settings settings) {
         super(settings);
     }
@@ -26,7 +26,7 @@ public class BatarangItem extends Item {
 
         user.getItemCooldownManager().set(this, 15);
 
-        if (!world.isClient) {
+        if (!world.isClient()) {
             BatarangEntity batarangEntity = new BatarangEntity(world, user);
             batarangEntity.setItem(itemStack);
             batarangEntity.setVelocity(user, user.getPitch(), user.getYaw(), 1.0F, 2F, 0.5F);

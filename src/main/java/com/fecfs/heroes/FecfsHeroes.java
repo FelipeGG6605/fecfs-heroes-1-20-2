@@ -1,5 +1,7 @@
 package com.fecfs.heroes;
 
+import com.fecfs.heroes.block.FecfsBlocks;
+import com.fecfs.heroes.block.entity.FecfsBlockEntities;
 import com.fecfs.heroes.effect.FecfsEffects;
 import com.fecfs.heroes.entity.FecfsEntities;
 import com.fecfs.heroes.item.FecfsItemGroups;
@@ -25,5 +27,7 @@ public class FecfsHeroes implements ModInitializer {
 		FecfsItems.registerModItems();
 		FecfsEffects.registerEffects();
 		FecfsSounds.registerSounds();
+		FecfsBlocks.registerBlocks();
+		FecfsBlockEntities.registerAllBlockEntities();
 	}
 }

@@ -1,6 +1,14 @@
 {
   "effect.fecfs-heroes.staggered": "Staggered",
+  "effect.fecfs-heroes.tb_2022_powers": "The Batman",
   "sound.fecfs-heroes.batarang_thrown": "Batarang Thrown",
+  "sound.fecfs-heroes.explosive_gel_placed": "Explosive Gel Placed",
   "item.fecfs-heroes.batarang": "Batarang",
-  "itemgroup.batgadgets": "Bat-Gadgets"
+  "itemgroup.batgadgets": "Bat-Gadgets",
+  "itemgroup.suits": "Suits",
+
+  "item.fecfs-heroes.tb_2022_helmet": "The Batman Helmet",
+  "item.fecfs-heroes.tb_2022_chestplate": "The Batman Chestplate",
+  "item.fecfs-heroes.tb_2022_leggings": "The Batman Leggings",
+  "item.fecfs-heroes.tb_2022_boots": "The Batman Boots"
 }

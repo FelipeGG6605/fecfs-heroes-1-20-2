@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class FecfsSounds {
     public static final SoundEvent BatarangThrown = registerSoundEvent("batarang_thrown");
+    public static final SoundEvent ExplosiveGelPlaced = registerSoundEvent("explosive_gel_placed");
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(FecfsHeroes.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));

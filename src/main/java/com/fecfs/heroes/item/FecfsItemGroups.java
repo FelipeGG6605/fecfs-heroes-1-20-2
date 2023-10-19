@@ -10,6 +10,15 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class FecfsItemGroups {
+    public static final ItemGroup Suits = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(FecfsHeroes.MOD_ID, "suits"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.suits"))
+                    .icon(() -> new ItemStack(FecfsItems.ARMOR_TAB_ICON)).entries((displayContext, entries) -> {
+                        entries.add(FecfsItems.TB_2022_HELMET);
+                        entries.add(FecfsItems.TB_2022_CHESTPLATE);
+                        entries.add(FecfsItems.TB_2022_LEGGINGS);
+                        entries.add(FecfsItems.TB_2022_BOOTS);
+                    }).build());
     public static final ItemGroup BatGadgets = Registry.register(Registries.ITEM_GROUP,
             new Identifier(FecfsHeroes.MOD_ID, "batgadgets"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.batgadgets"))

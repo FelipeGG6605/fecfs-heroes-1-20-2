@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "fecfs-heroes:item/batarang"
+    "layer0": "fecfs-heroes:item/explosive_gel"
   }
 }

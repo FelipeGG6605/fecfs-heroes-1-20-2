@@ -4,5 +4,11 @@
     "sounds": [
       "fecfs-heroes:batarangfx"
     ]
+  },
+  "explosive_gel_placed": {
+    "subtitle": "sounds.fecfs-heroes.expplosive_gel_placed",
+    "sounds": [
+      "fecfs-heroes:explosive_gel_placed"
+    ]
   }
 }
