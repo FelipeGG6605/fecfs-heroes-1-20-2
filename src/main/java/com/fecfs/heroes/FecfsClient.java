@@ -5,6 +5,7 @@ import com.fecfs.heroes.block.entity.FecfsBlockEntities;
 import com.fecfs.heroes.block.entity.client.ExplosiveGelBlockRenderer;
 import com.fecfs.heroes.entity.FecfsEntities;
 import com.fecfs.heroes.item.FecfsItems;
+import com.fecfs.heroes.item.custom.ExplosiveGelItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -37,10 +38,19 @@ public class FecfsClient implements ClientModInitializer {
         ));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (useGadget.wasPressed()) {
+                BlockPos blockPos = client.player.getBlockPos();
                 Hand hand = client.player.getActiveHand();
                 ItemStack itemStack = client.player.getStackInHand(hand);
                 if(itemStack.getItem().equals(FecfsItems.EXPLOSIVE_GEL)) {
-                    for(client.)
+                    for(int i = 1; i <= 10; i++) {
+                        Block block = client.world.getBlockState(blockPos).getBlock();
+                        if(block.equals(FecfsBlocks.EXPLOSIVE_GEL_BLOCK)) {
+                            client.world.createExplosion(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 2f,
+                                    World.ExplosionSourceType.BLOCK);
+                            client.world.removeBlock(blockPos, false);
+                        }
+
+                    }
                 }
             }
         });

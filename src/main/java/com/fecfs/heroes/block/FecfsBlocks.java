@@ -15,7 +15,7 @@ import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 
 public class FecfsBlocks {
     public static final Block EXPLOSIVE_GEL_BLOCK = Registry.register(Registries.BLOCK, new Identifier(FecfsHeroes.MOD_ID,
-            "explosive_gel_block"), new ExplosiveGelBlock(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).nonOpaque()));
+            "explosive_gel_block"), new ExplosiveGelBlock(FabricBlockSettings.copyOf(Blocks.TNT).nonOpaque()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
