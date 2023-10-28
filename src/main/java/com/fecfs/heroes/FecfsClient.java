@@ -1,60 +1,59 @@
 package com.fecfs.heroes;
 
-import com.fecfs.heroes.block.FecfsBlocks;
-import com.fecfs.heroes.block.entity.FecfsBlockEntities;
-import com.fecfs.heroes.block.entity.client.ExplosiveGelBlockRenderer;
 import com.fecfs.heroes.entity.FecfsEntities;
-import com.fecfs.heroes.item.FecfsItems;
-import com.fecfs.heroes.item.custom.ExplosiveGelItem;
+import com.fecfs.heroes.networking.FecfsPackets;
+import com.fecfs.heroes.particle.FecfsParticles;
+import com.fecfs.heroes.particle.SmokeParticle;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.TargetBlock;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
 public class FecfsClient implements ClientModInitializer {
     private static KeyBinding useGadget;
+    private static KeyBinding getEquipments;
     @Override
     public void onInitializeClient() {
+
         EntityRendererRegistry.register(FecfsEntities.BatarangEntityType, (context) ->
                 new FlyingItemEntityRenderer(context));
+
+        EntityRendererRegistry.register(FecfsEntities.SmokePelletEntityType, (context) ->
+                new FlyingItemEntityRenderer(context));
+        FecfsPackets.registerS2CPackets();
+        ParticleFactoryRegistry.getInstance().register(FecfsParticles.SMOKE_PARTICLE, SmokeParticle.Factory::new);
 
         useGadget = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.fecfs-heroes.usegadget",
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_R,
-                "category.fecfsheroes.abilities_gadgets"
+                GLFW.GLFW_KEY_G,
+                "category.fecfs-heroes.abilities"
         ));
+        getEquipments = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.fecfs-heroes.getequipments",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_X,
+                "category.fecfs-heroes.abilities"
+        ));
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (useGadget.wasPressed()) {
-                BlockPos blockPos = client.player.getBlockPos();
-                Hand hand = client.player.getActiveHand();
-                ItemStack itemStack = client.player.getStackInHand(hand);
-                if(itemStack.getItem().equals(FecfsItems.EXPLOSIVE_GEL)) {
-                    for(int i = 1; i <= 10; i++) {
-                        Block block = client.world.getBlockState(blockPos).getBlock();
-                        if(block.equals(FecfsBlocks.EXPLOSIVE_GEL_BLOCK)) {
-                            client.world.createExplosion(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 2f,
-                                    World.ExplosionSourceType.BLOCK);
-                            client.world.removeBlock(blockPos, false);
-                        }
-
-                    }
-                }
+                ClientPlayNetworking.send(FecfsPackets.USE_GADGET_KEYBIND_PACKET, PacketByteBufs.create());
+            }
+        });
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            while (getEquipments.wasPressed()) {
+                ClientPlayNetworking.send(FecfsPackets.GET_EQUIPMENTS_KEYBIND_PACKET, PacketByteBufs.create());
             }
         });
 
-        BlockEntityRendererFactories.register(FecfsBlockEntities.EXPLOSIVE_GEL_BLOCK_ENTITY, ExplosiveGelBlockRenderer::new);
     }
 }

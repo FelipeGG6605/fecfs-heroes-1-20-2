@@ -24,6 +24,9 @@ public class FecfsItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.batgadgets"))
                     .icon(() -> new ItemStack(FecfsItems.BATARANG_ITEM)).entries((displayContext, entries) -> {
                         entries.add(FecfsItems.BATARANG_ITEM);
+                        entries.add(FecfsItems.EXPLOSIVE_GEL);
+                        entries.add(FecfsItems.SMOKE_PELLET);
+                        entries.add(FecfsItems.REMOTE_ELECTRICAL_CHARGE_GUN);
                     }).build());
     public static void registerItemGroups() {
         FecfsHeroes.LOGGER.info("Registering Item Groups for " + FecfsHeroes.MOD_ID);

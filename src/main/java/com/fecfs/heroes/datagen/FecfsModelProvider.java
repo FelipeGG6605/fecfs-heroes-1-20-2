@@ -1,5 +1,6 @@
 package com.fecfs.heroes.datagen;
 
+import com.fecfs.heroes.block.FecfsBlocks;
 import com.fecfs.heroes.item.FecfsItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -13,6 +14,7 @@ public class FecfsModelProvider extends FabricModelProvider {
     }
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(FecfsBlocks.EXPLOSIVEGELBLOCK);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {

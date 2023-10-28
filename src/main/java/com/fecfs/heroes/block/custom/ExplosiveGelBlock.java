@@ -1,23 +1,27 @@
 package com.fecfs.heroes.block.custom;
 
-import com.fecfs.heroes.block.entity.ExplosiveGelBlockEntity;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.Properties;
 import org.jetbrains.annotations.Nullable;
 
-
-public class ExplosiveGelBlock extends BlockWithEntity {
+public class ExplosiveGelBlock extends Block {
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public ExplosiveGelBlock(Settings settings) {
         super(settings);
     }
+
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new ExplosiveGelBlockEntity(pos, state);
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
+
     @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
     }
 }

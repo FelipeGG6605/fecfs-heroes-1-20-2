@@ -1,6 +1,7 @@
 package com.fecfs.heroes.effect;
 
 import com.fecfs.heroes.FecfsHeroes;
+import com.fecfs.heroes.effect.custom.ElectrifiedEffect;
 import com.fecfs.heroes.effect.custom.StaggeredEffect;
 import com.fecfs.heroes.effect.custom.TB_2022Effect;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -16,7 +17,7 @@ public class FecfsEffects {
     public static final StatusEffect TB_2022EFFECT = registerStatusEffect("tb_2022_powers",
             new TB_2022Effect(StatusEffectCategory.BENEFICIAL, 0x1d1e21)
                     .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
-                    "425b97d4-f3ef-4194-9dfe-e67622e7a56d", 1.1f,
+                    "425b97d4-f3ef-4194-9dfe-e67622e7a56d", 1.05f,
                     EntityAttributeModifier.Operation.MULTIPLY_TOTAL)
                     .addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                             "c7b5ca1a-050c-4568-a963-cbb895fcf9cf", 6.5f,
@@ -29,7 +30,9 @@ public class FecfsEffects {
             new StaggeredEffect(StatusEffectCategory.HARMFUL, 0x2c7782)
                     .addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED,
                             "65e147ae-28f8-4fdd-a8a3-8936a3d9949b", -1.0f,
-                            EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+                            EntityAttributeModifier.Operation.ADDITION));
+    public static final StatusEffect ELECTRIFIED = registerStatusEffect("electrified",
+            new ElectrifiedEffect(StatusEffectCategory.HARMFUL, 0x2222d7));
     public static void registerEffects() {
         FecfsHeroes.LOGGER.info("Registering effects for "+FecfsHeroes.MOD_ID);
     }

@@ -6,9 +6,15 @@
     ]
   },
   "explosive_gel_placed": {
-    "subtitle": "sounds.fecfs-heroes.expplosive_gel_placed",
+    "subtitle": "sounds.fecfs-heroes.explosive_gel_placed",
     "sounds": [
       "fecfs-heroes:explosive_gel_placed"
+    ]
+  },
+  "remote_electrical_charge_gun_fx": {
+    "substitle": "sounds.fecfs-heroes.remote_electrical_charge_gun_fx",
+    "sounds": [
+      "fecfs-heroes:remote_electrical_charge_gun_fx"
     ]
   }
 }

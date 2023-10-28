@@ -7,6 +7,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class FecfsSounds {
+    public static final SoundEvent RemoteElectricalChargeGunShot = registerSoundEvent("remote_electrical_charge_gun_fx");
     public static final SoundEvent BatarangThrown = registerSoundEvent("batarang_thrown");
     public static final SoundEvent ExplosiveGelPlaced = registerSoundEvent("explosive_gel_placed");
     private static SoundEvent registerSoundEvent(String name) {

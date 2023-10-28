@@ -4,7 +4,12 @@
   "sound.fecfs-heroes.batarang_thrown": "Batarangue lançada",
   "sound.fecfs-heroes.explosive_gel_placed": "Gel explosivo colocado",
   "item.fecfs-heroes.batarang": "Batarangue",
+  "item.fecfs-heroes.explosive_gel": "Gel Explosivo",
+  "item.fecfs-heroes.smoke_pellet": "Granada de fumaça",
+  "item.fecfs-heroes.remote_electrical_charge_gun": "Carga Elétrica Remota",
   "itemgroup.batgadgets": "Bat-Dispositivos",
+  "key.fecfs-heroes.usegadget": "Usar dispositivo",
+  "key.fecfs-heroes.getequipments": "Equipar-se",
   "itemgroup.suits": "Trajes",
 
   "item.fecfs-heroes.tb_2022_helmet": "Capacete de The Batman",

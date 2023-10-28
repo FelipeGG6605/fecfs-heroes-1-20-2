@@ -7,6 +7,8 @@ import com.fecfs.heroes.entity.FecfsEntities;
 import com.fecfs.heroes.item.FecfsItemGroups;
 import com.fecfs.heroes.item.FecfsItems;
 import com.fecfs.heroes.item.custom.BatarangItem;
+import com.fecfs.heroes.networking.FecfsPackets;
+import com.fecfs.heroes.particle.FecfsParticles;
 import com.fecfs.heroes.sound.FecfsSounds;
 import net.fabricmc.api.ModInitializer;
 
@@ -29,5 +31,8 @@ public class FecfsHeroes implements ModInitializer {
 		FecfsSounds.registerSounds();
 		FecfsBlocks.registerBlocks();
 		FecfsBlockEntities.registerAllBlockEntities();
+		FecfsPackets.registerC2SPackets();
+		FecfsEntities.registerEntities();
+		FecfsParticles.registerParticles();
 	}
 }

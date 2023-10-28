@@ -11,11 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 
 public class FecfsBlocks {
-    public static final Block EXPLOSIVE_GEL_BLOCK = Registry.register(Registries.BLOCK, new Identifier(FecfsHeroes.MOD_ID,
-            "explosive_gel_block"), new ExplosiveGelBlock(FabricBlockSettings.copyOf(Blocks.TNT).nonOpaque()));
+    public static final Block EXPLOSIVEGELBLOCK = registerBlock("explosive_gel_block",
+            new ExplosiveGelBlock(FabricBlockSettings.copyOf(Blocks.AIR).nonOpaque()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
