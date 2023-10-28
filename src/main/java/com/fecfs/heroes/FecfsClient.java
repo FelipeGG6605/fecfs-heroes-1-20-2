@@ -1,6 +1,9 @@
 package com.fecfs.heroes;
 
 import com.fecfs.heroes.entity.FecfsEntities;
+import com.fecfs.heroes.entity.client.RECGEntityModel;
+import com.fecfs.heroes.entity.client.RECGEntityRenderer;
+import com.fecfs.heroes.entity.layer.FecfsModelLayer;
 import com.fecfs.heroes.networking.FecfsPackets;
 import com.fecfs.heroes.particle.FecfsParticles;
 import com.fecfs.heroes.particle.SmokeParticle;
@@ -22,6 +25,8 @@ public class FecfsClient implements ClientModInitializer {
     private static KeyBinding getEquipments;
     @Override
     public void onInitializeClient() {
+        EntityModelLayerRegistry.registerModelLayer(FecfsModelLayer.RECGEntity, RECGEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(FecfsEntities.RECGEntity, RECGEntityRenderer::new);
 
         EntityRendererRegistry.register(FecfsEntities.BatarangEntityType, (context) ->
                 new FlyingItemEntityRenderer(context));

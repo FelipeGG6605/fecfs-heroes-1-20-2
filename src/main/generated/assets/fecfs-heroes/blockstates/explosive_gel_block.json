@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "fecfs-heroes:block/explosive_gel_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "fecfs-heroes:block/explosive_gel_block"
+    },
+    "facing=south": {
+      "model": "fecfs-heroes:block/explosive_gel_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "fecfs-heroes:block/explosive_gel_block",
+      "y": 270
+    }
+  }
+}

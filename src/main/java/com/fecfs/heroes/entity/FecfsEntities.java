@@ -2,6 +2,7 @@ package com.fecfs.heroes.entity;
 
 import com.fecfs.heroes.FecfsHeroes;
 import com.fecfs.heroes.entity.custom.BatarangEntity;
+import com.fecfs.heroes.entity.custom.RECGEntity;
 import com.fecfs.heroes.entity.custom.SmokePelletEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -12,6 +13,15 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class FecfsEntities {
+    public static final EntityType<RECGEntity> RECGEntity = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(FecfsHeroes.MOD_ID, "recgentity"),
+            FabricEntityTypeBuilder.<RECGEntity>create(SpawnGroup.MISC, RECGEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .trackRangeBlocks(4).trackedUpdateRate(10)
+                    .build()
+    );
+
     public static final EntityType<BatarangEntity> BatarangEntityType = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(FecfsHeroes.MOD_ID, "batarang"),
